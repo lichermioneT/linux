@@ -1,0 +1,135 @@
+c标准库是给人已经给我们写好的了
+我们使用时，只是调用，没有相应的实现。
+只有链接的时候，对应的实现才和我们的代码关联起来。
+    我们调用库函数和标准库是如何链接起来的1
+
+动态链接
+   step1
+   step2
+   step3
+   step4:去链接动态库，库函数调准。
+         怎么知道库函数在哪了呢？
+   step5
+   优点：形成的可执行程序小，节省资源，磁盘，网络下载 
+静态链接
+    step1
+    step2
+    step3
+    step4:就在家里面
+    step5
+    优点：不受库的影响。但是形成的可执行程序大。
+
+bit:
+byte:
+
+
+file指令展示文件的信息，例如动静态链接
+ldd 查看链接关系,查看程序运行时所依赖的动态链接库路径和加载位置
+linux下库的命名
+    动态库：libxxxx.so
+    静态库：libxxxx.a
+    区分库的类型，去掉lib,后缀。剩下就是库名称。
+
+c语言标准库
+    /lib64/libc-2.17-so
+
+linux默认使用的是动态库。
+
+使用静态编译必须添加参数 -static
+    [root@VM-8-9-centos class8]# ll
+    total 868
+    -rw-r--r-- 1 root root   1051 Jun 25 18:39 class8.txt
+    -rw-r--r-- 1 root root     24 Jun 19 13:01 makefile
+    -rwxr-xr-x 1 root root   8360 Jun 25 18:30 test
+    -rwxr-xr-x 1 root root 861288 Jun 25 18:30 test_a
+    -rw-r--r-- 1 root root    369 Jun 25 18:29 test.c
+    [root@VM-8-9-centos class8]# 
+
+
+linux很多指令就是c语言实现的。一旦删除c语言动态库，很多指令就无法使用了。
+[root@VM-8-9-centos class8]# file /usr/bin/ls
+/usr/bin/ls: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=c8ada1f7095f6b2bb7ddc848e088c2d615c3743e, stripped
+[root@VM-8-9-centos class8]# file /usr/bin/pwd
+/usr/bin/pwd: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=8f1d0ff9fee13b5d44a1189122856912af0486bc, stripped
+[root@VM-8-9-centos class8]# file /usr/bin/cd
+/usr/bin/cd: POSIX shell script, ASCII text executable
+[root@VM-8-9-centos class8]# file /usr/bin/which 
+/usr/bin/which: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=0ae1eec039498c8b3be2173e78b9eb366a67c12e, stripped
+
+访问c库的人很多，但是库有几份呢？一份。所有的c语言程序，不会出现重读的代码。
+所以动态库也叫共享库。
+
+静态链接，拷贝的是静态库内部的代码（.a）的代码。
+
+系统一般而言会自动携带动态库，静态库如果不存在，需要自己安装。:
+（虚拟内存 + 动态链接）
+
+系统编程给我们提供什么？
+    系统给我们提示，告诉怎么使用。
+    标准的动静态库 方法我有，需要实现来找我就行。
+我的代码 + 库的代码 == 可执行程序。
+
+windows下原理是一样的。
+    默认也是动态链接的。
+
+whereis:查看指令位置和帮助文档的位置
+
+make自动化构建工具
+makefile原理。
+    依赖关系
+    依赖方法
+
+mytest:test.c
+    gcc test.c -o test
+
+.PHONY:clean 后面的目标是一个为目标。该目标总是被执行的。
+clean:
+    rm -rf test
+make第一个指令可以省略信息，默认形成第一个
+
+三个时间
+    access time: 访问数据，访问太频繁 ，可能不会更新的太快。访 一段时间才会修改的
+    modify time：内容数据,内容增加了，属性也就变了。
+    change time：属性修改 
+
+stat 文件
+    文件的时间
+
+touch可以更新文件的时间。
+
+
+
+linux下第一个小程序进度条
+缓冲区就是内存中一个临时中转仓库，用来减少慢设备访问次数，提升效率，但你要小心“数据还没真正写出”。
+这行代码并不会立刻就写到屏幕上，它会先写入一个“缓冲区”，然后：
+
+如果缓冲区满了
+
+或者你遇到了 \n
+
+或者你显式调用了 fflush(stdout)
+
+或程序正常退出
+
+才会真正把内容写到屏幕上（终端）
+
+\n 行缓冲直接输出\n之前所有的数据
+
+显示器能显示都是字符。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
