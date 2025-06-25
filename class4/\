@@ -1,0 +1,85 @@
+yum:yum
+    是的，你可以把 yum（Yellowdog Updater, Modified） 理解为 CentOS（以及 RHEL 系列）的“命令行软件商店”，
+    它的作用和手机、Windows/mac 的应用商店非常类似。
+
+linux设计哲学一切皆是文件
+
+find命令非常重要
+find pathname -options
+find / -name stdio.h  
+find 可能访问磁盘，所以可能比较慢
+
+which指令：只是搜索命令,这里存在环境变量的问题
+    which还会显示命令的别名
+    [root@VM-8-9-centos class4]# which ls
+        alias ls='ls --color=auto'
+	    /usr/bin/ls
+    alias:别名 化名
+    alias 新名字 = ‘指令’
+
+whereis指令：搜索关键字
+    在特定的路径下，查找指定的文件对应的指令或者文档
+
+
+为什么我的程序需要路径呢？系统的不需要呢？
+
+grep指令：文本内容的行过滤工具。globally search for a regular expression and print
+    grep '内容' 文本文件
+    grep '内容' 文本文件 -n 显示信息在文件中行号
+    grep '内容' 文本文件 -i 忽略大小写的信息
+    grep '内容' 文本文件 -v 匹配到的不显示，没有匹配的到的显示
+    -i
+    -v
+    -n
+    
+    grep '内容' 文件 | wc -l
+    
+grep可以和其他命令结合进行管道输出
+
+sort 文件：文件内容按照ASCII码码进行排序
+uniq 文件：对文件相邻行，相同的文本进行删除，只是保留一样
+
+
+压缩命令
+   zip默认打包目录的时候，只会打包目录。
+   zip -r .zip 目录
+   zip -r 你的压缩包(自定义的) dir
+   unzip 你的压缩包（自定义的）当前目录进行解压
+   unzip 你的压缩包（自定义的）当前目录进行解压 -d 选择你的路径
+
+为什么打包和压缩？
+    互联网很多文件-->方便文件传输和保存。将多个文件变成一个文件。不牵扯文件丢失：；
+    高效率传输文件
+    方便文件存储
+
+tar指令
+    tar -czf my.tgz 文件 压缩    
+    tar -xzf my.tgz 压缩文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,108 @@
+操作系统进行软硬件管理的系统
+基本指令就是windows下的基本操作
+vim指令:qall退出全部的窗口
+
+mkdir穿件文件夹
+touch创建文件
+
+rmdir/rm指令：删除文件。
+
+rmdir删除空目录。
+rm删除文件的,是直接删除的。
+rm删除目录，目录下面可能会有其它的东西，需要递归删除。
+rm -r,递归删除文件夹，依次进入
+rm -f,强制删除文件，不需要确认。
+rm -rf 递归强制删除目录及其文件
+rm -rf / 直接把操作系统删除
+-i = interactive（交互式）给你提示
+
+man命令重要！！
+man 是 manual（手册） 的缩写，用于查看 Linux 命令的使用说明、参数、范例等。
+       1   Executable programs or shell commands
+       2   System calls (functions provided by the kernel)
+       3   Library calls (functions within program libraries)
+       4   Special files (usually found in /dev)
+       5   File formats and conventions eg /etc/passwd
+       6   Games
+       7   Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
+       8   System administration commands (usually only for root)
+       9   Kernel routines [Non standard]
+
+man命令是从一号手册开始查询，找到就停下来
+man可以根据制定手册查找 man 1/2/3 命令/接口
+安装man手册  yum install -y man-pages 
+
+echo "内容"  > file1.txt 这样子也可以创建文件
+
+cp 拷贝文件
+cp -r 递归拷贝文件
+cp -rf 强制递归拷贝文件
+cp -i 交互式拷贝文件
+拷贝命令
+
+
+mv 移动命令
+mv 在当前文件下移动就可以直接改名字
+mv 移动文件夹不需要带 r选项
+
+cat命令:适合小文本 
+tac命令
+
+more命令
+more -n 直接查看第几行
+q退出
+
+less命令
+less支持上下翻
+
+什么叫做大文本，直接决定我使用的命令
+日志？日志从后往前翻。
+
+直接从前面后面看文件内容信息，默认显示10行数据
+head -n
+tail -n
+
+怎么显示中间的行数呢·
+临时文件方法
+管道:
+    管道都是输送信息的
+    只学习管道的操作，后面讲进程通信的时候，专门讲管道的原理和实现编码
+
+    批量化命名
+    head -1020  test.txt  | tail  -55
+    head -1020  test.txt  | tail  -55
+    head -1020  test.txt  | tail  -55 | tac   
+    head -1020  test.txt  | tail  -55 | tac   
+    head -1020  test.txt  | tail  -55 | tac  | ./change 
+    
+    管道可以组合自己的命令
+
+
+linux设计哲学一切皆是文件，包括硬件设备。
+stdin 标准输入
+stdout 标准输出
+stderr 标准错误
+
+date 指令
+date +%s 1970 1 1 unix的时间戳
+累积的多少秒
+
+
+cal 年
+显示日历
+时间问题
+    
+
+cnt=0
+while (( cnt <= 10000 )); do
+    echo "hello lichermionex [$cnt]"
+    ((cnt++))
+done > test.txt
+
+
+
+linux是一个企业后端的服务器，上面会部署很多重要的服务，mysql数据库。
+
+sudo==superuser do
+
+
