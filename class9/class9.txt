@@ -1,0 +1,29 @@
+基本上linux命令都是c/c++写的
+动态库libxxxx.so
+静态库libxxxx.a
+
+库存在的意义写代码方便
+    我的代码 + 库代码 == 程序
+
+makefile依赖关系和依赖方法
+    伪命令.PHONY
+    总是被执行，根据时间。源文件与可执行修改时。
+
+缓冲区和回车换行。\r回车。
+显示器能够显示的都是符号
+
+
+ makefile                                                                                                                                                                   buffers 
+  1 process:main.c process.c
+  2     gcc main.c process.c -o process
+  3 .PHONY:clean
+  4 clear:
+  5     rm -f processs         
+这里面不需要添加头文件。因为头文件就是当前目录下面。
+头文件和源文件在当前路径下，不需要写makefile里面。
+
+git使用方法
+
+git就是版本控制器
+    
+
